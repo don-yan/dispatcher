@@ -12,12 +12,12 @@ RUN buildDeps='ca-certificates curl' set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends $buildDeps \
 	&& rm -r /var/lib/apt/lists/* \
-  && curl -SL "$DISPATCHER_GZ_URL" -o dispatcher.tar.gz \
+	&& curl -SL "$DISPATCHER_GZ_URL" -o dispatcher.tar.gz \
 	&& mkdir -p src/dispatcher \
 	&& tar -xvf dispatcher.tar.gz -C src/dispatcher \
 	&& rm dispatcher.tar.gz* \
-  && cp src/dispatcher/dispatcher-apache2.4-$DISPATCHER_VERSION.so $HTTPD_PREFIX/modules/mod_dispatcher.so \
-  && rm -r src/dispatcher \
+	&& cp src/dispatcher/dispatcher-apache2.4-$DISPATCHER_VERSION.so $HTTPD_PREFIX/modules/mod_dispatcher.so \
+	&& rm -r src/dispatcher \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
