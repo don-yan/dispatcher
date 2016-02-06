@@ -1,0 +1,127 @@
+/farms
+  {
+  /website
+    {
+    /clientheaders
+      {
+      "*"
+      }
+
+    /virtualhosts
+      {
+      "*"
+      }
+
+    /renders
+      {
+      /rend01
+        {
+        /hostname "${PUBLISH_HOSTNAME}"
+        /port "${PUBLISH_PORT}"
+        }
+      }
+
+    /filter
+      {
+      /0001 { /type "deny" /glob "*" }
+
+      /0021 { /type "allow" /url "/content*" }
+
+      /0041 { /type "allow" /url "*.css" }
+      /0042 { /type "allow" /url "*.gif" }
+      /0043 { /type "allow" /url "*.ico" }
+      /0044 { /type "allow" /url "*.js" }
+      /0045 { /type "allow" /url "*.png" }
+      /0046 { /type "allow" /url "*.swf" }
+      /0047 { /type "allow" /url "*.jpg" }
+      /0048 { /type "allow" /url "*.jpeg" }
+      /0049 { /type "allow" /url "*.svg" }
+
+      /0062 { /type "allow" /url "/libs/cq/personalization/*" }
+
+      /0080 { /type "allow" /url "/robots.txt" }
+      /0081 { /type "deny"  /url "*.infinity.json" }
+      /0082 { /type "deny"  /url "*.tidy.json" }
+      /0083 { /type "deny"  /url "*.sysview.xml" }
+      /0084 { /type "deny"  /url "*.docview.json" }
+      /0085 { /type "deny"  /url "*.docview.xml" }
+
+      /0086 { /type "deny"  /url "*.*[0-9].json" }
+
+      /0090 { /type "deny"  /url "*.query.json" }
+      /9999 { /type "deny" /method "GET" /url "​*" /query "sling:authRequestLogin=*​" }
+      }
+
+    /cache
+      {
+      /docroot "/opt/communique/dispatcher/cache"
+
+      /rules
+        {
+        /0000
+          {
+          /glob "*"
+          /type "allow"
+          }
+        }
+
+      /invalidate
+        {
+        /0000
+          {
+          /glob "*"
+          /type "deny"
+          }
+        /0001
+          {
+          /glob "*.html"
+          /type "allow"
+          }
+        /0002
+          {
+          /glob "/etc/segmentation.segment.js"
+          /type "allow"
+          }
+        /0003
+          {
+          /glob "*/analytics.sitecatalyst.js"
+          /type "allow"
+          }
+        }
+
+      /allowedClients
+        {
+        /0000
+          {
+          /glob "*"
+          /type "deny"
+          }
+        /0001
+          {
+          /glob "127.0.0.1"
+          /type "allow"
+          }
+        /0002
+         	{
+         	/glob "10.*.*.*"
+          /type "allow"
+         	}
+        }
+      }
+
+    /statistics
+      {
+      /categories
+        {
+        /html
+          {
+          /glob "*.html"
+          }
+        /others
+          {
+          /glob "*"
+          }
+        }
+      }
+    }
+  }
