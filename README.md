@@ -1,7 +1,8 @@
 # Dispatcher
 
 This is a dockerized Apache 2.4 server with the Adobe dispatcher
-module 4.1.11.
+module 4.1.11. The image is based on the official `httpd:2.4` image
+and adds the dispatcher module with corresponding configuration.
 
 ## Usage
 
