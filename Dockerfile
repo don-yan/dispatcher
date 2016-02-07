@@ -21,5 +21,4 @@ RUN buildDeps='ca-certificates curl' set -x \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
-COPY ./httpd-vhosts.conf conf/extra/httpd-vhosts.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
