@@ -24,3 +24,5 @@ RUN buildDeps='ca-certificates curl' set -x \
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
+
+VOLUME ["/usr/local/apache2/logs"]
