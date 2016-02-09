@@ -1,11 +1,14 @@
 FROM httpd:2.4
 
 VOLUME ["/etc/httpd/conf/certs"]
+VOLUME ["/usr/local/apache2/logs"]
 
 ENV AUTHOR_ENV_TUTUM_SERVICE_FQDN ''
 ENV PUBLISH_ENV_TUTUM_SERVICE_FQDN ''
 ENV AUTHOR_PORT_4502_TCP_PORT ''
 ENV PUBLISH_PORT_4503_TCP_PORT ''
+
+ENV SERVER_NAME ''
 
 ENV DISPATCHER_VERSION 4.1.11
 ENV DISPATCHER_GZ_URL https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_10/file.res/dispatcher-apache2.4-linux-x86-64-$DISPATCHER_VERSION.tar.gz
@@ -24,5 +27,3 @@ RUN buildDeps='ca-certificates curl' set -x \
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
-
-VOLUME ["/usr/local/apache2/logs"]
