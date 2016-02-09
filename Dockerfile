@@ -2,8 +2,10 @@ FROM httpd:2.4
 
 VOLUME ["/etc/httpd/conf/certs"]
 
-ENV PUBLISH_HOSTNAME ''
-ENV PUBLISH_PORT 4503
+ENV AUTHOR_ENV_TUTUM_SERVICE_FQDN ''
+ENV PUBLISH_ENV_TUTUM_SERVICE_FQDN ''
+ENV AUTHOR_PORT_4502_TCP_PORT ''
+ENV PUBLISH_PORT_4503_TCP_PORT ''
 
 ENV DISPATCHER_VERSION 4.1.11
 ENV DISPATCHER_GZ_URL https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_10/file.res/dispatcher-apache2.4-linux-x86-64-$DISPATCHER_VERSION.tar.gz
