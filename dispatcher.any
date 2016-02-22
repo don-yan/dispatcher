@@ -16,8 +16,8 @@
       {
       /rend01
         {
-        /hostname "${PUBLISH_ENV_TUTUM_SERVICE_FQDN}"
-        /port "${PUBLISH_PORT_4503_TCP_PORT}"
+        /hostname "${PUBLISH_DISPATCH_HOSTNAME}"
+        /port "${PUBLISH_DISPATCH_PORT}"
         }
       }
 
