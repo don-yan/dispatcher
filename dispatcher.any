@@ -36,6 +36,7 @@
       /0047 { /type "allow" /url "*.jpg" }
       /0048 { /type "allow" /url "*.jpeg" }
       /0049 { /type "allow" /url "*.svg" }
+      /0050 { /type "allow" /url "*.map" }
 
       /0062 { /type "allow" /url "/libs/cq/personalization/*" }
 
