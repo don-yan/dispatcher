@@ -27,6 +27,8 @@
 
       /0021 { /type "allow" /url "/content*" }
 
+      /0031 { /type "allow" /url "/bin/servlets/*" }
+
       /0041 { /type "allow" /url "*.css" }
       /0042 { /type "allow" /url "*.gif" }
       /0043 { /type "allow" /url "*.ico" }
