@@ -25,3 +25,6 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/li
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
+
+RUN mkdir -p /opt/communique/dispatcher \
+	&& chmod 777 /opt && chmod 777 /opt/communique/dispatcher && chmod 777 /opt/communique/dispatcher
