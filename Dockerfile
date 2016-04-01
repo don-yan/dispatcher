@@ -27,5 +27,5 @@ COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
 
 RUN mkdir -p /opt/communique/dispatcher \
-	&& chown daemon:daemon /opt/communique/dispatcher 
+	&& chown daemon:daemon /opt/communique/dispatcher \
 	&& chmod 755 /opt/communique/dispatcher
