@@ -41,6 +41,8 @@
       /0050 { /type "allow" /url "*.map" }
 
       /0062 { /type "allow" /url "/libs/cq/personalization/*" }
+      
+      /0071 { /type "allow" /url "/etc/clientlibs/axa/frontend-lib/docs/api/*.json" }
 
       /0080 { /type "allow" /url "/robots.txt" }
       /0081 { /type "deny"  /url "*.infinity.json" }
