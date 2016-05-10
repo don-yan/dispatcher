@@ -31,3 +31,13 @@ COPY ./conf.d/* /usr/local/apache2/conf.d/
 RUN mkdir -p /opt/communique/dispatcher \
 	&& chown daemon:daemon /opt/communique/dispatcher \
 	&& chmod 755 /opt/communique/dispatcher
+
+#Install cron
+RUM apt-get update \
+    && apt-get install cron
+
+# Add crontab file in the cron directory
+ADD crontab /etc/cron.d/vanity-cron
+
+# Give execution rights on the cron job
+RUN chmod 0644 /etc/cron.d/vanity-cron
