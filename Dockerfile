@@ -18,15 +18,17 @@ RUN buildDeps='ca-certificates curl' set -x \
 	&& rm dispatcher.tar.gz* \
 	&& cp src/dispatcher/dispatcher-apache2.4-*.so $HTTPD_PREFIX/modules/mod_dispatcher.so \
 	&& rm -r src/dispatcher \
-	&& apt-get purge -y --auto-remove $buildDeps
+	&& apt-get purge -y --auto-remove $buildDeps \
 	&& mkdir -p conf.d
 
 RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.0.9.8 \
-	&& ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/x86_64-linux-gnu/libcrypto.so.0.9.8
+  && ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/x86_64-linux-gnu/libcrypto.so.0.9.8
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
 COPY ./conf.d/* /usr/local/apache2/conf.d/
+COPY ./generate_vanity_map.sh /usr/local/apache2/
+COPY ./mapfile.map /usr/local/apache2/
 
 RUN mkdir -p /opt/communique/dispatcher \
 	&& chown daemon:daemon /opt/communique/dispatcher \
