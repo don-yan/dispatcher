@@ -19,6 +19,8 @@ RUN buildDeps='ca-certificates curl' set -x \
 	&& cp src/dispatcher/dispatcher-apache2.4-$DISPATCHER_VERSION.so $HTTPD_PREFIX/modules/mod_dispatcher.so \
 	&& rm -r src/dispatcher \
 	&& apt-get purge -y --auto-remove $buildDeps
+	&& mkdir -p conf.d
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./dispatcher.any /usr/local/apache2/conf/dispatcher.any
+COPY ./conf.d/* /usr/local/apache2/conf.d/
