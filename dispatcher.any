@@ -16,8 +16,8 @@
       {
       /rend01
         {
-        /hostname "${PUBLISH_ENV_TUTUM_SERVICE_FQDN}"
-        /port "${PUBLISH_PORT_4503_TCP_PORT}"
+        /hostname "${PUBLISH_DISPATCH_HOSTNAME}"
+        /port "${PUBLISH_DISPATCH_PORT}"
         }
       }
 
@@ -26,6 +26,8 @@
       /0001 { /type "deny" /glob "*" }
 
       /0021 { /type "allow" /url "/content*" }
+
+      /0031 { /type "allow" /url "/bin/servlets/*" }
 
       /0041 { /type "allow" /url "*.css" }
       /0042 { /type "allow" /url "*.gif" }
@@ -36,8 +38,11 @@
       /0047 { /type "allow" /url "*.jpg" }
       /0048 { /type "allow" /url "*.jpeg" }
       /0049 { /type "allow" /url "*.svg" }
+      /0050 { /type "allow" /url "*.map" }
 
       /0062 { /type "allow" /url "/libs/cq/personalization/*" }
+      
+      /0071 { /type "allow" /url "/etc/clientlibs/axa/frontend-lib/docs/api/*.json" }
 
       /0080 { /type "allow" /url "/robots.txt" }
       /0081 { /type "deny"  /url "*.infinity.json" }
