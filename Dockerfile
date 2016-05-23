@@ -35,7 +35,7 @@ RUN mkdir -p /opt/communique/dispatcher \
 	&& chmod 755 /opt/communique/dispatcher
 
 #Install cron
-RUM apt-get update \
+RUN apt-get update \
     && apt-get install cron
 
 # Add crontab file in the cron directory
