@@ -27,7 +27,7 @@
 
       /0021 { /type "allow" /url "/content*" }
 
-      /0031 { /type "allow" /url "/bin/servlets/*" }
+      /0031 { /type "allow" /url "/bin/servlets/*" } # AXA Public Servlets
 
       /0041 { /type "allow" /url "*.css" }
       /0042 { /type "allow" /url "*.gif" }
@@ -41,7 +41,8 @@
       /0050 { /type "allow" /url "*.map" }
 
       /0062 { /type "allow" /url "/libs/cq/personalization/*" }
-      
+      /0063 { /type "allow" /url "/etc/clientlibs/axa/forms-common/*"  }  # JUST AS EXCEPTION - HAS TO BE DELETED AGAIN
+
       /0071 { /type "allow" /url "/etc/clientlibs/axa/frontend-lib/docs/api/*.json" }
 
       /0080 { /type "allow" /url "/robots.txt" }
@@ -68,6 +69,13 @@
           /glob "*"
           /type "allow"
           }
+           /0001
+          {
+          # no-cache for formulare
+          /glob "*/formulare/*" 
+          /type "deny"
+          }
+
         }
 
       /invalidate
