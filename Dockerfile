@@ -35,11 +35,11 @@ RUN mkdir -p /opt/communique/dispatcher \
 	&& chmod 755 /opt/communique/dispatcher
 
 #Install cron
-RUN apt-get update \
-    && apt-get install cron
+# RUN apt-get update \
+#    && apt-get install cron
 
 # Add crontab file in the cron directory
-ADD crontab /etc/cron.d/vanity-cron
+# ADD crontab /etc/cron.d/vanity-cron
 
 # Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/vanity-cron
+# RUN chmod 0644 /etc/cron.d/vanity-cron
