@@ -21,7 +21,7 @@ docker build -t dispatcher .
 Next, simply start the dispatcher with your own setting:
 
 ```sh
-docker run --rm -it -v /etc/httpd/conf/certs:/etc/httpd/conf/certs -e PUBLISH_HOSTNAME=192.168.99.100 -e PUBLISH_PORT=3000 -p 80:80 -p 443:443 dispatcher
+docker run --rm -it -v /etc/httpd/conf/certs:/etc/httpd/conf/certs -e PUBLISH_DISPATCH_HOSTNAME=192.168.99.100 -e PUBLISH_DISPATCH_PORT=3000 -p 80:80 -p 443:443 dispatcher
 ```
 
 ## LICENSE
